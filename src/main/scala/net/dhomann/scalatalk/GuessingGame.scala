@@ -1,10 +1,8 @@
 package net.dhomann.scalatalk
 
-
-import actors.Actor
+import scala.actors.Actor
 import actors.Actor._
-import scala.Range.Inclusive
-import scala.collection.mutable.HashMap
+import collection.mutable.HashMap
 
 /**
  * A simple game implementation with one coordinator actor and a number of player actors.
