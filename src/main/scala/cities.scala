@@ -102,7 +102,7 @@ val SanFrancisco = new City("San Francisco", new Location("37° 46' N", "122° 2
 
 val cities = List(Paris, Hamburg, Prague, NewYorkCity, Sydney, Singapore, SanFrancisco)
 
-cities.foreach(c => println(c.name + ": " + c.location))
+cities.foreach { c => println(c.name + ": " + c.location) }
 
 println
 

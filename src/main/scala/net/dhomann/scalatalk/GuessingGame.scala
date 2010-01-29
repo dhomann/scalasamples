@@ -30,7 +30,7 @@ object GuessingGame extends Application with Actor {
       loop {
         react {
           case TakeGuess(max, sender) =>
-            sender ! Guess(random(Max), this)
+            sender ! Guess(random(max), this)
 
           case AnnounceWinner(Some(winner)) =>
             if (winner == this)
@@ -45,7 +45,7 @@ object GuessingGame extends Application with Actor {
     }
   }
 
-  private val players = List((1 to 3).map((i:Int) => new Player("Player " + i)): _*)
+  private val players = List((1 to 10).map((i:Int) => new Player("Player " + i)): _*)
   private val Max: Long = 100
   private var number: Long = 0
   private val guesses = new GuessMap()
@@ -60,7 +60,7 @@ object GuessingGame extends Application with Actor {
     guesses.clear
     number = random(Max)
     println("New game, new luck! The magic number is " + number)
-    players.foreach(_ ! TakeGuess(random(Max), this))
+    players.foreach(_ ! TakeGuess(Max, this))
   }
 
   def act() {
