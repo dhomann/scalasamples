@@ -14,11 +14,10 @@ import collection.mutable.HashMap
  */
 object GuessingGame extends Application with Actor {
   // these are the messages exchanged between the actors
-  // the compiler can make sure matches are exhaustive, because the case classes are sealed
   private sealed abstract case class Message()
-  private case class TakeGuess(max: Long, r: Actor)
-  private case class Guess(value: Long, p: Player)
-  private case class AnnounceWinner(winner: Option[Player])
+  private case class TakeGuess(max: Long, r: Actor) extends Message
+  private case class Guess(value: Long, p: Player) extends Message
+  private case class AnnounceWinner(winner: Option[Player]) extends Message
 
   // type alias for the map of collected guesses
   private type GuessMap = HashMap[Player, Long]
